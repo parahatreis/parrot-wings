@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: var(--text-primary); }
+
+:root {
+  --primary-color: #00A378;
+  --secondary-color: #EDFDF5;
+  --text-primary: #313131;
+  --text-secondary: #616161;
+  --disabled: #E6E6E6;
+}
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: #FFF;
+}
+
+.mat-button-disabled {
+  background-color: var(--disabled);
+}
+
+.error {
+  padding: 0.5rem 1rem;
+  width: '100%';
+  color: white;
+  background-color: rgb(224, 2, 2);
+  border-radius: 4px;
+}

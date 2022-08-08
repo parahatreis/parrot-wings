@@ -1,0 +1,50 @@
+header {
+  box-shadow: 0px 2px 2px rgba(219, 219, 219, 0.25);
+  padding: 0.5rem 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+}
+
+.logo img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.right-side {
+  display: flex;
+}
+
+.user-info {
+  display: flex;
+  margin-right: 1rem;
+  align-items: center;
+}
+
+.username {
+  font-size: 1rem;
+}
+
+.balance {
+  font-size: 1rem;
+  margin-left: 1rem;
+  background-color: var(--secondary-color);
+  padding: 0.5rem 1rem;
+}
+
+.balance .title {
+  color: var(--text-secondary);
+}
+
+.amount {
+  margin-left: 0.5rem;
+  color: var(--primary-color);
+  font-weight: 800;
+}
