@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService
   ) {
     // redirect to home if already logged in
-    if (this.authService.userToken) { 
+    if (this.authService.getUserToken) { 
       this.router.navigate(['/']);
     }
   }

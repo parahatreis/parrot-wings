@@ -14,6 +14,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
+import { TransactionItemComponent } from './components/transaction-item/transaction-item.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    TransactionListComponent,
+    TransactionItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

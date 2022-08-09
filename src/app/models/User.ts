@@ -1,7 +1,9 @@
 export interface User {
   id: string;
-  username: string;
+  name: string;
   email: string;
   password: string;
   balance?: any;
 }
+
+export type InitialUserState = User | null;

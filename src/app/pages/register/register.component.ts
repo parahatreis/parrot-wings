@@ -17,10 +17,13 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient,
     private router: Router,
     private authService: AuthService,
   ) {
+    // redirect to home if already logged in
+    if (this.authService.getUserToken) { 
+      this.router.navigate(['/']);
+    }
   }
 
   ngOnInit(): void {
@@ -45,9 +48,8 @@ export class RegisterComponent implements OnInit {
     this.authService.register(this.form.getRawValue())
       .subscribe(
         (res) => {
-          this.isLoading = false;
           this.errorMessage = ''
-          this.router.navigate(['/login']);
+          this.router.navigate(['/']);
         },
         (err) => {
           if (err) this.errorMessage = err.error;

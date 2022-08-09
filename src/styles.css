@@ -7,12 +7,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: var(
   --primary-color: #00A378;
   --secondary-color: #EDFDF5;
   --text-primary: #313131;
-  --text-secondary: #616161;
+  --text-secondary: #6e6e6e;
   --disabled: #E6E6E6;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 900px;
   width: 90%;
   margin: 0 auto;
 }

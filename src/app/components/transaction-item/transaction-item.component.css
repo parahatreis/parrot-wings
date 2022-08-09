@@ -1,0 +1,40 @@
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-color);
+  padding: 1rem 2rem;
+  border: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.block .label {
+  color: var(--text-secondary);
+}
+
+.block .value {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.block .value.amount {
+  color: var(--primary-color);
+}
+
+button {
+  color: var(--text-primary);
+  padding: 0.25rem 0.75rem;
+}
+.btn-label {
+  margin-left: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.icon {
+  transform: scale(0.75);
+}

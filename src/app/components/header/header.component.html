@@ -5,15 +5,15 @@
         <img src="../../../assets/PW-LOGO.svg" />
       </a>
     </div>
-    <div class="right-side">
+    <div class="right-side" *ngIf="user">
       <div class="user-info">
-        <div class="username">Jayson Delgado</div>
+        <div class="username">{{ user.name }}</div>
         <div class="balance">
           <span class="title">Balance</span>
-          <span class="amount">$900</span>
+          <span class="amount">${{ user.balance }}</span>
         </div>
       </div>
-      <button mat-stroked-button>Logout</button>
+      <button mat-stroked-button (click)="logout()">Logout</button>
     </div>
   </div>
 </header>
