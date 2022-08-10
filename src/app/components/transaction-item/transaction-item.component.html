@@ -1,19 +1,19 @@
 <li>
   <div class="block">
     <div class="label">Name:</div>
-    <div class="value bold">Jack Edison</div>
+    <div class="value bold">{{ transaction.username }}</div>
   </div>
   <div class="block">
     <div class="label">Amount:</div>
-    <div class="value bold amount">$500</div>
+    <div class="value bold amount">${{ transaction.amount }}</div>
   </div>
   <div class="block">
     <div class="label">Resulting balance:</div>
-    <div class="value bold">$2000</div>
+    <div class="value bold">${{ transaction.balance }}</div>
   </div>
   <div class="block">
     <div class="label">Date:</div>
-    <div class="value">28.02.2000</div>
+    <div class="value">{{ transaction.date }}</div>
   </div>
   <div class="block">
     <button mat-stroked-button aria-label="Duplicate Transaction">

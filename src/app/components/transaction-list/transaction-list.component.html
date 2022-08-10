@@ -1,3 +1,10 @@
+<div class='loading-wrapper' *ngIf="isLoading">
+  Loading...
+</div>
 <ul>
-  <app-transaction-item></app-transaction-item>
+  <app-transaction-item 
+    *ngFor="let transaction of transactions"
+    [transaction]='transaction'
+  >
+  </app-transaction-item>
 </ul>

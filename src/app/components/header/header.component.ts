@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
   ) {
-    this.subscription = this.userService.getUserInfo().subscribe(val =>
+    this.subscription = this.userService.getUserInfoAsObservable().subscribe(val =>
       this.user = val
     )
   }

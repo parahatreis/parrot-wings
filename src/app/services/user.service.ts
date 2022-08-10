@@ -23,8 +23,20 @@ export class UserService {
       }));
   }
 
-  getUserInfo(): Observable<InitialUserState> {
+  getUserInfoAsObservable(): Observable<InitialUserState> {
     return this.currentUserSubject.asObservable();
+  }
+
+  public get getUserInfo(): InitialUserState {
+    return this.currentUserSubject.value;
+  }
+
+  updateUserBalance(newBalance: number): void {
+    const newUserData = {
+      ...this.currentUserSubject.value,
+      balance: newBalance,
+    }
+    this.currentUserSubject.next(newUserData as any)
   }
 
   removeUserInfo(): void {

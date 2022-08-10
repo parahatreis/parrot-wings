@@ -1,0 +1,16 @@
+.modal-wrapper {
+  width: 350px;
+}
+
+.input-block {
+  width: 100%;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  margin-left: 0.5rem;
+}

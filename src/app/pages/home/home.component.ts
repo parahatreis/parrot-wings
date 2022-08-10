@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    this.userService.getUser().pipe(first()).subscribe();
+    this.userService.getUser().subscribe();
   }
 
   openDialog() {

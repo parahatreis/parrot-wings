@@ -16,6 +16,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
 import { TransactionItemComponent } from './components/transaction-item/transaction-item.component';
+import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TransactionItemComponent } from './components/transaction-item/transact
     HeaderComponent,
     TransactionListComponent,
     TransactionItemComponent,
+    AddTransactionComponent,
   ],
   imports: [
     BrowserModule,
