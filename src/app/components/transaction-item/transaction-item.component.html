@@ -5,7 +5,13 @@
   </div>
   <div class="block">
     <div class="label">Amount:</div>
-    <div class="value bold amount">${{ transaction.amount }}</div>
+    <ng-template [ngIf]="transaction.amount >= 0" [ngIfElse]="minusAmount">
+      <div class="value bold amount-plus">+ ${{transaction.amount}}</div>
+    </ng-template>
+    <ng-template #minusAmount>
+      <div class="value bold amount-minus">- ${{0 - transaction.amount}}</div>
+    </ng-template>
+
   </div>
   <div class="block">
     <div class="label">Resulting balance:</div>
@@ -16,7 +22,11 @@
     <div class="value">{{ transaction.date }}</div>
   </div>
   <div class="block">
-    <button mat-stroked-button aria-label="Duplicate Transaction">
+    <button 
+      mat-stroked-button 
+      aria-label="Duplicate Transaction"
+      (click)="handleClickCopyTransaction(transaction)"
+      >
       <mat-icon class='icon'>content_copy</mat-icon>
       <span class='btn-label'>Copy transaction</span>
     </button>

@@ -8,3 +8,6 @@
   >
   </app-transaction-item>
 </ul>
+<div *ngIf="transactions.length === 0 && !isLoading">
+  You don't have any transactions yet.
+</div>

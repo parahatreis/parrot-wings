@@ -9,6 +9,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: var(
   --text-primary: #313131;
   --text-secondary: #6e6e6e;
   --disabled: #E6E6E6;
+  --danger: rgb(205, 1, 1);
 }
 
 .container {
@@ -32,4 +33,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: var(
   color: white;
   background-color: rgb(224, 2, 2);
   border-radius: 4px;
+}
+
+.snackbar {
+  background-color: var(--primary-color);
+  color: #FFF;
+}
+
+.snackbar button {
+  color: var(--secondary-color);
 }

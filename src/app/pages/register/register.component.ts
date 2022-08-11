@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/services/auth.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-register',
@@ -19,6 +18,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
+    private toastService: ToastService,
   ) {
     // redirect to home if already logged in
     if (this.authService.getUserToken) { 
@@ -47,9 +47,10 @@ export class RegisterComponent implements OnInit {
     this.isLoading = true;
     this.authService.register(this.form.getRawValue())
       .subscribe(
-        (res) => {
+        () => {
           this.errorMessage = ''
           this.router.navigate(['/']);
+          this.toastService.openToastBar('Welcome to Parrot Wings!')
         },
         (err) => {
           if (err) this.errorMessage = err.error;

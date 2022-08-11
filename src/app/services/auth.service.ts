@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { TransactionService } from './transaction.service';
 
 interface UserPayloadBody  {
   username?: string;
@@ -22,6 +23,7 @@ export class AuthService {
   constructor(
     private httpClient: HttpClient,
     private userService: UserService,
+    private transactionService: TransactionService,
   ) {
     const token = localStorage.getItem('userToken') ? JSON.parse(localStorage.getItem('userToken') || '') : '';
     this.userTokenSubject = new BehaviorSubject<string>(token);
@@ -58,5 +60,6 @@ export class AuthService {
     localStorage.removeItem('userToken');
     this.userTokenSubject.next('');
     this.userService.removeUserInfo();
+    this.transactionService.clearTransactions();
   }
 }

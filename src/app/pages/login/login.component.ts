@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { first } from 'rxjs';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastService: ToastService,
   ) {
     // redirect to home if already logged in
     if (this.authService.getUserToken) { 
@@ -45,6 +47,7 @@ export class LoginComponent implements OnInit {
         () => {
           this.errorMessage = ''
           this.router.navigate(['/'])
+          this.toastService.openToastBar('Welcome to Parrot Wings!')
         },
         (err) => {
           if (err) this.errorMessage = err.error

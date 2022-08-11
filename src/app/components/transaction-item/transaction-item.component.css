@@ -22,8 +22,11 @@ li {
   font-weight: 800;
 }
 
-.block .value.amount {
+.block .value.amount-plus {
   color: var(--primary-color);
+}
+.block .value.amount-minus {
+  color: var(--danger);
 }
 
 button {

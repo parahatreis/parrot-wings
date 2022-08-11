@@ -13,16 +13,19 @@ interface TransactionPayloadBody {
   providedIn: 'root'
 })
 export class TransactionService {
-  // private transactionsSubject!: BehaviorSubject<any>;
-  // public transactions!: Observable<any>;
+  private transactionsSubject: BehaviorSubject<Transaction[]>;
+  public transactions: Observable<Transaction[]>;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.transactionsSubject = new BehaviorSubject<Transaction[]>([]);
+    this.transactions = this.transactionsSubject.asObservable();
+  }
   
   getTransactions() {
     return this.httpClient.get<{ trans_token: Transaction }>(`${environment.apiURL}/api/protected/transactions`)
       .pipe(map(payload => {
-        const transactionsArr = payload.trans_token
-        return transactionsArr as Transaction;
+        const transactionsArr: any = payload.trans_token
+        this.transactionsSubject.next(transactionsArr);
       }));
   }
 
@@ -32,5 +35,21 @@ export class TransactionService {
         const { trans_token } = payload;
         return trans_token as Transaction;
       }));
+  }
+
+  getTransactionsAsObservable(): Observable<any> {
+    return this.transactionsSubject.asObservable();
+  }
+
+  addTransaction(newTransaction: Transaction): void {
+    const updatedTransactionArray = [
+      ...this.transactionsSubject.value,
+      newTransaction
+    ]
+    this.transactionsSubject.next(updatedTransactionArray);
+  }
+
+  clearTransactions() {
+    this.transactionsSubject.next([]);
   }
 }
